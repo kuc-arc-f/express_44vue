@@ -24,6 +24,8 @@ express + vue + vite, SPA sample
 
 ```
 yarn build
+
+#
 yarn dev
 ```
 
@@ -32,12 +34,14 @@ yarn dev
 
 ```
 yarn build
+
+#
 yarn start
 ```
 
 ***
 ### blog
-//zenn.dev/knaka0209/scraps/9123b01abf89e6
+
 
 ***
 
