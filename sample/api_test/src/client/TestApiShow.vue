@@ -4,8 +4,11 @@ import { ref, reactive } from 'vue';
 import Crud from './Zod/Crud';
 import Validate from './Zod/Validate';
 import CrudIndex from './TestApi/CrudIndex';
+import CrudShow from './TestApi/CrudShow';
 //
 let items = ref([]);
+let item = ref({});
+let itemId = ref(0);
 const errors = reactive({
   title: "",
   content: "",
@@ -36,22 +39,26 @@ console.log(errors);
   }
 }
 /**
- * getList
+ *
  * @param
  *
  * @return
  */
-const getList = async function() {
+const getItem = async function() {
   try{
-console.log("#getList");
-    const data = await CrudIndex.getList();
+console.log("#getItem");
+    const searchParams = new URLSearchParams(window.location.search);
+    const id = searchParams.get('id') || "";
+console.log("id=", id);
+    itemId.value = Number(id);
+    const data = await CrudShow.get(Number(id));
 console.log(data);
-    items.value = data;
+    item.value = data;
   } catch (e) {
     console.error(e);
   } 
 }
-getList();
+getItem();
 
 </script>
 
@@ -59,37 +66,12 @@ getList();
 <template>
   <div class="container mx-auto my-2 px-8 bg-white">
     <h1 class="text-4xl text-gray-700 font-bold my-2">TestApi.vue! </h1>
+    <h1 class="text-4xl text-gray-700 font-bold my-2">{{item.title}}</h1>
     <hr class="my-2" />
-    <label>Title:
-      <input type="text" id="title" 
-      class="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-      />    
-    </label>
-    <span v-if="errors.title">
-      <em class="error_message">{{errors.title}}</em>
-    </span>
+    <span>ID: {{item.id}}, {{item.createdAt}}</span>
     <hr class="my-2" />
-    <label>Content:
-    <input type="text" id="content" 
-    class="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-    />    
-    </label>    
-    <span v-if="errors.content">
-      <em class="error_message">{{errors.content}}</em>
-    </span>
+    {{item.content}}
     <hr class="my-2" />
-    <button @click="testProc" class="btn-purple">Add</button>
-    <hr class="my-2" />
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        <h3 class="text-3xl font-bold">{{ item.title }}</h3>
-        <span>ID: {{ item.id }}, {{ item.createdAt }}</span>
-        <router-link :to="'/testapishow?id=' + item.id" 
-        class="btn-outline-purple ms-2">Show
-        </router-link>
-        <hr class="my-2" />
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -98,7 +80,5 @@ getList();
 </style>
 
 <!-- 
-tit= {{errors.title}}
-<span v-if="errorContent"><em class="error_message">{{errorContent}}</em>
-</span>
+<button @click="testProc" class="btn-purple">Add</button>
 -->
