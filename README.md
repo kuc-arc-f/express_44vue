@@ -6,7 +6,7 @@
 
  date    : 2024/03/25  
 
- update : 2024/03/26
+ update : 2024/04/20
 
 ***
 
@@ -17,26 +17,10 @@ express + vue + vite, SPA sample
 ***
 ### build
 
-***
-
-### yarn 
-* dev-start
-
 ```
 yarn build
 
-#
 yarn dev
-```
-
-***
-* prod-start
-
-```
-yarn build
-
-#
-yarn start
 ```
 
 ***

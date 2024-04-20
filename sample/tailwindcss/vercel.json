@@ -1,0 +1,22 @@
+
+{
+    "version": 2,
+    "public": true,
+    "builds": [
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
+      },        
+      {
+        "src": "dist/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
+      {
+        "src": "/.*",
+        "dest": "/dist/index.js"
+      }
+    ]
+  }

@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,tsx,vue", 
+  "ignore": ["src/lib/**/*.txt"],
+  "exec": "node build.js && npx vite build --mode client && node ./dist/index.js"
+}
