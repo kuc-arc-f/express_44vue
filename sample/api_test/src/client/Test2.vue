@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
+import LoadBox from '../components/LoadBox.vue';
 
 const objData = {
   count: 0,
@@ -29,6 +30,7 @@ console.log(countObj);
 </script>
 
 <template>
+  <LoadBox />
   <div class="container mx-auto my-2 px-8 bg-white">
     <h1 class="text-4xl text-gray-700 font-bold my-2">Test2.vue</h1>
     <hr class="my-2" />
