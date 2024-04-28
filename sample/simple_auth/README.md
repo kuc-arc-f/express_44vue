@@ -1,4 +1,4 @@
-﻿# simple sample
+﻿# simple auth
 
  Version: 0.9.1
 
