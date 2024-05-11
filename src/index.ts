@@ -1,10 +1,10 @@
 
 import express from 'express';
-import { renderToString } from 'react-dom/server';
+import { renderToString } from 'vue/server-renderer'
 const app = express();
 import 'dotenv/config'
 //
-import Top from './pages/App';
+import { createApp } from './pages/App'
 //
 import commonRouter from './routes/commonRouter';
 //
@@ -19,8 +19,11 @@ const errorObj = {ret: "NG", messase: "Error"};
 app.use('/api/common', commonRouter);
 
 //routes
-app.get('/*', (req: any, res: any) => {
-  try { res.send(renderToString(Top())); } catch (error) { res.sendStatus(500); }
+app.get('/*', async (req: any, res: any) => {
+  const { app } = createApp()
+  const ctx = {}
+  const html = await renderToString(app, ctx)
+  try { res.send(html); } catch (error) { res.sendStatus(500); }
 });
 
 //start
