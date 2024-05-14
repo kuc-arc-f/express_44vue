@@ -15,6 +15,19 @@ express + vue + vite, SPA sample
 * file base routing
 
 ***
+### Sample
+
+* api_test: api sample
+
+* simple_auth: simple auth, user data from .env 
+
+* tailwindcss: css sample
+
+* user_auth: user auth, user add possible
+
+* zod_test: zod validate sample
+
+***
 ### build
 
 ```
