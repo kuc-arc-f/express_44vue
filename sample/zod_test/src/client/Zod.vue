@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Crud from './Zod/Crud';
 import Validate from './Zod/Validate';
+import DialogBox from '../components/DialogBox.vue'
+import ErrorDialogBox from '../components/ErrorDialogBox.vue'
 //
 import { ref, reactive } from 'vue';
 //
@@ -24,11 +26,23 @@ const testProc = async function(){
   if(formErrors.content){
     errors.content = formErrors.content;
   }
-console.log("errors.title=", errors.title);
-console.log(errors);
-//  if (Object.keys(errors).length > 0) {
-//    alert("Error!");
-//  }
+//console.log("errors.title=", errors.title);
+console.log("len=", Object.keys(formErrors).length);
+if (Object.keys(formErrors).length > 0) {
+    const dlg = document.getElementById('errorModalDialog');
+    if(dlg) {
+      //@ts-ignore
+      dlg.showModal();
+    }
+    return;
+  }
+  if (Object.keys(formErrors).length < 1) {
+    const modalDialog = document.getElementById('modalDialog');
+    if(modalDialog) {
+      //@ts-ignore
+      modalDialog.showModal();
+    }
+  }
 }
 </script>
 
@@ -56,6 +70,9 @@ console.log(errors);
     </span>
     <hr class="my-2" />
     <button @click="testProc" class="btn">Test</button>
+    <!-- dialog -->
+    <DialogBox message="OK, Check Complete!!" />
+    <ErrorDialogBox message="NG, Check!" />
   </div>
 </template>
 
