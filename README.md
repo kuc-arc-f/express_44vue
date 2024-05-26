@@ -28,6 +28,11 @@ express + vue + vite, SPA sample
 * zod_test: zod validate sample
 
 ***
+### Stackblitz
+
+https://stackblitz.com/~/github.com/kuc-arc-f/express_44vue
+
+***
 ### build
 
 ```
