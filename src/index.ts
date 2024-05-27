@@ -1,10 +1,11 @@
 
 import express from 'express';
 import { renderToString } from 'vue/server-renderer'
+import { createSSRApp } from 'vue'
 const app = express();
 import 'dotenv/config'
 //
-import { createApp } from './pages/App'
+import App from './pages/App.vue'
 //
 import commonRouter from './routes/commonRouter';
 //
@@ -20,9 +21,8 @@ app.use('/api/common', commonRouter);
 
 //routes
 app.get('/*', async (req: any, res: any) => {
-  const { app } = createApp()
-  const ctx = {}
-  const html = await renderToString(app, ctx)
+  const app = createSSRApp(App)
+  const html = await renderToString(app, {})
   try { res.send(html); } catch (error) { res.sendStatus(500); }
 });
 
