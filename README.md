@@ -46,6 +46,11 @@ yarn dev
 
 https://zenn.dev/knaka0209/books/b1bd883fb8dd95/viewer/147d1b
 
+***
+### ChangeLog
+
+* 0_9_3: vite 6 change
+* 0_9_1: new
 
 ***
 
