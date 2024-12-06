@@ -1,12 +1,12 @@
 ﻿# express_44vue
 
- Version: 0.9.2
+ Version: 0.9.3
 
  Author  : Kouji Nakashima / kuc-arc-f.com
 
  date    : 2024/03/25  
 
- update : 2024/05/26
+ update : 2024/12/01
 
 ***
 
