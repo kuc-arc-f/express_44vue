@@ -27,7 +27,7 @@ app.get('/*', async (req: any, res: any) => {
 });
 
 //start
-const PORT = 4000;
+const PORT = 3000;
 app.listen({ port: PORT }, () => {
   console.log(`Server ready at http://localhost:${PORT}`);
 });

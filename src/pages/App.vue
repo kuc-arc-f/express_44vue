@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue';
 let envValue = ref(process.env.NODE_ENV);
 //console.log("page.App.env=", process.env.NODE_ENV)
-console.log("envValue=", envValue.value)
+//console.log("envValue=", envValue.value)
 </script>
 
 <template>

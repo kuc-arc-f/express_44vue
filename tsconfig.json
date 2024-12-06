@@ -1,20 +1,7 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist",
-    "target": "ESNext",
-    "module": "ESNext",
-    "sourceMap": false,
-    "strict": true,
-    "removeComments": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "jsx": "react-jsx"
-  },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.tsx"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": [
-    "./src/test/*", "node_modules",
-    "./src/main.ts"
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
