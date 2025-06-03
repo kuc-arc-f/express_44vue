@@ -1,0 +1,32 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=develop nodemon",
+    "build": "npm run build:server && vite build --mode client && npm run build:css",
+    "build:server": "npx rolldown -c rolldown.config.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/main.css -o ./public/static/main.css",
+    "start": "NODE_ENV=develop node ./dist/index.js",
+    "clean": "rimraf dist && rimraf public/static"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.6",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/tsconfig": "^0.7.0",
+    "nodemon": "^3.0.3",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^4.1.8",
+    "typescript": "~5.8.3",
+    "vite": "npm:rolldown-vite@^6.3.16",
+    "vue-tsc": "^2.2.10"
+  }
+}
