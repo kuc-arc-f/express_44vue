@@ -1,5 +1,4 @@
 <script setup lang="ts">
-//import HelloWorld from './components/HelloWorld.vue'
 import { RouterLink } from 'vue-router';
 import Header from './components/Header.vue'
 //
@@ -12,7 +11,6 @@ const routes = Object.keys(pages).map((path) => {
     component: pages[path].default,
   }
 })
-console.log("#App.vue");
 //console.log(routes);
 let items = routes;
 </script>
@@ -31,10 +29,4 @@ let items = routes;
 </style>
 
 <!--
-<hr />
-<Header />
-<h1>hello, vue</h1>
-<li v-for="item in items" :key="item.id">
-  ">link={{ item.name }}</router-link>
-</li>
 -->
